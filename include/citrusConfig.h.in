@@ -1,0 +1,4 @@
+// the configured options and settings for Citrus
+#define Citrus_VERSION_MAJOR @Citrus_VERSION_MAJOR@
+#define Citrus_VERSION_MINOR @Citrus_VERSION_MINOR@
+#define Citrus_VERSION_PATCH @Citrus_VERSION_PATCH@
