@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ develop, main ]
+  push:
+    branches: [ add-linter-target ]
+
+  # Allows running this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: apline
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: What OS is running
+        run: uname -a
