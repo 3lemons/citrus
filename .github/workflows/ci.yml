@@ -11,7 +11,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: 3lemons/citrus:0.0.1
+      image: 3lemons/citrus:0.1.0
     steps:
       - uses: actions/checkout@v2
       - name: Lint
