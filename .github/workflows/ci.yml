@@ -13,24 +13,22 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: amd64/gcc:latest
+      image: 3lemons/citrus:0.1.0
     steps:
       - uses: actions/checkout@v2
-      - name: Hello world
-        run: echo "hello world"
-      # - name: Lint
-      #   run: ./linter.sh
-      # - name: Build
-      #   run: |
-      #     cd build
-      #     make
-      # - name: Unit Tests
-      #   run: |
-      #     cd build
-      #     ./CitrusTests
-      # - name: Check Memory Management
-      #   run: |
-      #     cd build
-      #     chmod 700 ./libCitrus.a
-      #     valgrind ./libCitrus.a
+      - name: Lint
+        run: ./linter.sh
+      - name: Build
+        run: |
+          cd build
+          make
+      - name: Unit Tests
+        run: |
+          cd build
+          ./CitrusTests
+      - name: Check Memory Management
+        run: |
+          cd build
+          chmod 700 ./libCitrus.a
+          valgrind ./libCitrus.a
       
