@@ -34,6 +34,7 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY C_STANDARD 11)
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}")
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 target_link_libraries(${PROJECT_NAME} Citrus)
+target_link_libraries(${PROJECT_NAME} cmocka)
 
 target_compile_options(${PROJECT_NAME} PRIVATE 
     "-Wall"
