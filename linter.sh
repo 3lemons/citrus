@@ -24,4 +24,8 @@ fi
 # Run cmake in build dir
 (cd ${BUILD_DIR} && cmake ..)
 
-splint -I${INCLUDE_DIR} -I${BUILD_DIR} ${BUILD_SRC} ${TEST_SRC}
+echo "Linting engine"
+splint -I${INCLUDE_DIR} -I${BUILD_DIR} ${BUILD_SRC}
+
+echo "Linting tests"
+splint ${TEST_SRC} -noeffect -nullassign -nullpass

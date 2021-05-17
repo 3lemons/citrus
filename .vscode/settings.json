@@ -2,6 +2,7 @@
     "files.associations": {
         "*.in": "cpp",
         "citrusconfig.h": "c",
-        "stdarg.h": "c"
+        "stdarg.h": "c",
+        "cmocka.h": "c"
     }
 }
