@@ -24,9 +24,3 @@ jobs:
         run: |
           cd build
           ./CitrusTests
-      - name: Check Memory Management
-        run: |
-          cd build
-          chmod 700 ./libCitrus.a
-          valgrind ./libCitrus.a
-      
