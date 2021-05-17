@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ develop, main ]
+
+  # Allows running this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: 3lemons/citrus:0.1.0
+    steps:
+      - uses: actions/checkout@v2
+      - name: Lint
+        run: ./linter.sh
+      - name: Build
+        run: |
+          cd build
+          make
+      - name: Unit Tests
+        run: |
+          cd build
+          ./CitrusTests
