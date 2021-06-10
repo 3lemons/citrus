@@ -24,6 +24,15 @@ The following features will remain outside of the scope of the engine.
 - Level editor tools
 
 ## <a name="building"></a>Building from source
+
+### Dependencies
+To build Citrus, you will first need [cmocka](https://cmocka.org/) installed on your development environment. If you are on Linux, you should be able to install this through your respective package manager. It is also available through [brew](https://formulae.brew.sh/formula/splint). If you do install it this way, you need to make sure that your brew's include and lib directories are in the C compiler's paths. This might not be an issue, depending on how you install brew. If brew's include and lib directories are not in your compiler's paths, you can include them by adding the following lines to the CMakeLists.txt file:
+
+```
+target_include_directories(${PROJECT_NAME} PUBLIC /path/to/brew/include/directory)
+link_directories(${PROJECT_NAME} PUBLIC /path/to/brew/lib/directory)
+```
+
 To build this engine from source run the following at the top level of this directory
 ```
 if [ ! -d build ]
