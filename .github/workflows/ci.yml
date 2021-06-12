@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: |
           cd build
-          make
+          make Citrus CitrusTests
       - name: Unit Tests
         run: |
           cd build
