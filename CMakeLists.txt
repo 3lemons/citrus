@@ -19,6 +19,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 )
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
     target_compile_options(${PROJECT_NAME} PRIVATE "-g")
+    add_compile_definitions(DEBUG_ON)
 else()
     target_compile_options(${PROJECT_NAME} PRIVATE "-O2")
 endif()
