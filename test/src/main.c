@@ -1,19 +1,13 @@
-#include <stdarg.h>
-#include <stddef.h>
-#include <setjmp.h>
-#include <cmocka.h>
+#include <check.h>
+#include <stdio.h>
 
-#include <entry.h>
-/* A test case that does nothing and succeeds. */
-static void placeholder_test(void **state) {
-    int i = 4;
-    assert_int_equal(4, i);
-    (void) state; /* unused */
+START_TEST (test_name)
+{
+  printf("%s\n", test_name->name);/* unit test code */
 }
-int main(void) {
-    const struct CMUnitTest tests[] = {
-        cmocka_unit_test(placeholder_test),
-    };
+END_TEST
 
-    return cmocka_run_group_tests(tests, NULL, NULL);
+
+int main(void) {
+	return 0;
 }
