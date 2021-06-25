@@ -1,19 +1,39 @@
-#include <stdarg.h>
-#include <stddef.h>
-#include <setjmp.h>
-#include <cmocka.h>
+#include <check.h>
+#include <stdio.h>
 
-#include <entry.h>
-/* A test case that does nothing and succeeds. */
-static void placeholder_test(void **state) {
-    int i = 4;
-    assert_int_equal(4, i);
-    (void) state; /* unused */
+START_TEST (test_name)
+{
 }
+END_TEST
+            
+Suite * example_suite(void)
+{
+    Suite *s;
+    TCase *tc_core;
+
+    s = suite_create("Example");
+
+    /* Core test case */
+    tc_core = tcase_create("Bingo");
+
+    tcase_add_test(tc_core, test_name);
+    suite_add_tcase(s, tc_core);
+
+    return s;
+}
+
+
+
 int main(void) {
-    const struct CMUnitTest tests[] = {
-        cmocka_unit_test(placeholder_test),
-    };
+    int number_failed;
+    Suite *s;
+    SRunner *sr;
 
-    return cmocka_run_group_tests(tests, NULL, NULL);
-}
+    s = example_suite();
+    sr = srunner_create(s);
+
+    srunner_run_all(sr, CK_NORMAL);
+    number_failed = srunner_ntests_failed(sr);
+    srunner_free(sr);
+    return (number_failed == 0) ? 0 : 1;
+ }
