@@ -35,7 +35,15 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY C_STANDARD 11)
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 target_link_libraries(${PROJECT_NAME} Citrus)
-target_link_libraries(${PROJECT_NAME} check)
+# m rt pthread and subunit needed so can be linked dynamically in Debian based distros.
+#This is needed as Github Actions CI/CD runs in Debian based container
+# see https://github.com/libcheck/check/issues/156
+find_program(DEBIAN "dpkg")
+if(DEBIAN)
+        target_link_libraries(${PROJECT_NAME} check m rt pthread subunit)
+else()
+        target_link_libraries(${PROJECT_NAME} check)
+endif()
 
 target_compile_options(${PROJECT_NAME} PRIVATE 
     "-Wall"
