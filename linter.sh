@@ -28,4 +28,4 @@ echo "Linting engine"
 splint -I${INCLUDE_DIR} -I${BUILD_DIR} ${BUILD_SRC}
 
 echo "Linting tests"
-splint ${TEST_SRC} -I${INCLUDE_DIR} -noeffect -nullassign -nullpass
+splint ${TEST_SRC} -I${INCLUDE_DIR} -syntax -paramuse

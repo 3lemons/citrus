@@ -3,7 +3,7 @@
 
 START_TEST (test_name)
 {
-  printf("%s\n", test_name->name);/* unit test code */
+  printf("%s\n", test_name->name);
 }
 END_TEST
 
